@@ -1,0 +1,174 @@
+<!-- ########################### Module 01 ################################## -->
+<script>
+    var grade = 'A';
+    switch(grade){
+        case 'A':
+        result = 'A grade';
+        break;
+
+        case 'B':
+        result = 'B grade';
+        break;
+
+        default:
+        result = 'No grade';
+    }
+    //document.write(result);
+
+
+    // loop
+    for(var i = 1; i <= 10; i++){
+        //document.write(i + '<br>')
+    }
+
+    var j = 11;
+    while(j < 21){
+        //document.write(j + '<br>')
+        j++
+    }
+
+    var k = 100
+    do{
+        //document.write(k + '<br>');
+        k++
+    }while(
+        k < 111
+    )
+
+
+    // function return
+
+    function getSum(){
+        return 5 + 12
+    }
+    //document.write(getSum())
+
+    // object
+    var MyLaptop = {
+        brand: 'HP',
+        model: '0007',
+        ram  : '4GB',
+        isSSD: true
+    }
+    document.write(MyLaptop['ram']);
+
+
+    // Array concat
+    const city1 = ['Dhaka', 'Rangpur', 'Dinajpur'];
+    const city2 = ['Barisal', 'Rajshahi', 'Sylhet'];
+    const cities = city1.concat(city2);
+    console.log(cities);
+    //document.writeln(cities);
+
+    // Array Filter
+    var marks = [50,40,45,37,55];
+    var result = marks.filter(check);
+    function check(value){
+        return value > 400;
+    }
+    //document.write(result);
+
+    // Array find and findIndex
+    var findFirstValue = marks.find(check) // return the first value of satisfying condition
+    var findFirstValueIndex = marks.findIndex(check) // if didnot find the expected result then return -1
+    //document.write(findFirstValue) 
+    //document.write(findFirstValueIndex) 
+    var res = marks.find(x => x > 40)
+    var resIndex = marks.findIndex(x => x > 40)
+    //document.writeln(resIndex);
+
+
+    // Array foreach
+    marks.forEach(function(mark) {
+        //document.writeln(mark);
+    })
+
+    // Array include // check if item exist or not, return true or false
+    //document.write(marks.includes(100))
+
+    // indexOf, lastIndexOf
+    //document.write(marks.indexOf(400));
+    //document.write(marks.lastIndexOf(40));
+
+    // push an pop
+    marks.push(100)
+    marks.push(200)
+    //document.writeln(marks);
+    marks.pop();
+    //document.writeln(marks);
+
+
+    // array reverse
+    marks.reverse();
+    //document.writeln(marks);
+
+    // array slice  => does not change orginal array
+    var arr = [0,1,2,3,4,5,6,7,8,9];
+    //document.writeln(arr.slice(1, 5)); // (from(index) , to(index) not include) == return value from start index to end index, does not change original array
+
+    //document.writeln(arr.splice(1, 6)); // end index included, kete niye ase, change orginal array
+    //document.writeln('new array => '+ arr);
+    var arr = ['A', 'B', 'C', 'E', 'F'];
+    var res_arr = arr.splice(2, 0, 'D');
+    document.writeln(res_arr);
+    
+    // sort array
+    var arrr = [5,4,9,10];
+    var r = arrr.sort(function(a , b){
+        return a - b
+    });
+
+    var rr = arrr.sort(function(a , b){
+        return b -a
+    });
+    //document.writeln(rr);
+
+
+    // string method
+    var country = 'Bangladesh';
+    //document.write(country[1]);
+    //document.write(country.replace('d', 'ddddddddd'));
+    //document.write(country.substr(1));
+    //document.write(country.substring(1));
+
+
+    // Array splice 
+    var marks = [50,40,45,37,55];
+    //splice(index, countRemove, item);
+    var newSliecdArr = marks.splice(5, 0, 60);
+    //document.writeln(marks);
+
+
+    // string method
+    var countryName = "FINLAND";
+    //document.write(countryName.charAt(4));
+    //document.write(countryName.indexOf('A'));
+
+    // template literal
+    var firstName = 'Azharul';
+    var lastName  = 'Islam';
+    var fullName  = `My name is ${firstName} ${lastName}`;
+    //document.write(fullName);
+
+    // substr
+    //document.write(countryName.substr(0,2));
+    //document.write(countryName.substring(0,2));
+
+    // date
+    var d = new Date();
+    // document.write(d.getDay()+ '-');
+    // document.write(d.getMonth()+ '-');
+    // document.write(d.getFullYear()+ '-');
+    // document.write(d.getMinutes()+ '-');
+    // document.write(d.getSeconds()+ '-');
+    // document.write(d.getHours()+ '-');
+    // document.write(d.getUTCDate()+ '-');
+    // document.write(d.getUTCDate()+ '-');
+
+
+
+
+</script>
+
+
+<!-- ########################### Module 02 ################################## -->
