@@ -7,17 +7,37 @@
     <title>DOM Practice</title>
 </head>
 <body>
-
-    <p id="demoText"></p>
+    <h5 class="heading5"></h5>
+    <h5 class="heading5"></h5>
+    <h5 class="heading5"></h5>
+    <p id="demoText" class="demo-text"></p>
+    <p id="demoText2" class="demo-text"></p>
     <button id="demo" onclick="alertFunction();">Alert Box</button>
     <button id="" onclick="confirmFunction();">Confirm Box</button>
     <button id="" onclick="promptFunction();">Prompt Box</button>
     <button id="" onclick="windowOpenFunction();">Open Window</button>
     <button id="" onclick="windowCloseFunction();">Close Window</button>
-    <button id="" onclick="setTimeOutFunction();">Alert After 5 Sec</button>
+    <button id="" onclick="setTimeOutFunction();">Set Time Out (Alert After 5 Sec)</button>
 
     <button id="" onclick="setIntervalFunction();">Set Interval</button>
     <button id="" onclick="clearIntervalFunction();">Clear Interval</button>
+
+
+    <button id="" onclick="myFunction();">Open Window with text</button>
+    <button id="" onclick="addClass();">Add Class</button>
+    <button id="" onclick="removeClass();">Remove Class</button>
+    <button id="" onclick="changeImage();">Change Image</button>
+
+    <img width="250" height="250" src="https://expertphotography.b-cdn.net/wp-content/uploads/2019/05/beautiful-photography-man-sitting-in-front-of-lake.jpg" id="image" alt="">
+
+
+
+    <h3></h3>
+    <input type="text" class="name">
+    <input type="text" id="name">
+    <input type="text" name="name">
+    <input type="text" placeholder="name">
+    <button id="" onclick="changeInput();">Change input by Query Selector</button>
 
     <script>
 
@@ -37,12 +57,11 @@
         }
 
         function windowOpenFunction(){
-            window.open();
+            open();
         }
 
         function windowCloseFunction(){
-            var customWindow = window.open('', '_blank', '');
-            customWindow.close();
+            close();
         }
 
         function setTimeOutFunction(){
@@ -55,13 +74,97 @@
         function myTimer(){
             const date = new Date();
             const localTime = date.toLocaleTimeString();
-            document.getElementById('demoText').innerHTML = localTime;
+            //document.getElementById('demoText').innerHTML = localTime;
         }
         function clearIntervalFunction(){
             clearInterval(myInterval)
         }
 
+        document.getElementsByTagName('h5')[0].innerHTML = 'Demo Text';//
+        document.write(document.cookie+'<br>');
+        document.write(document.URL+'<br>');
+        document.write(document.domain  +'<br>');
+        document.write(document.documentURI  +'<br>');
+        document.write(document.baseURI  +'<br>');
+        document.write(document.lastModified  +'<br>');
+        document.write(document.title  +'<br>');
 
+        function myFunction(){
+            var w = window.open();
+            w.document.open();
+            w.document.write('some text written');
+            w.document.close();
+        }
+
+        // tag length 
+        var x = document.getElementsByTagName('h5');
+        var length = x.length;
+        document.write('<br>' + length);
+
+        // add class by id
+        function addClass(){
+            var y = document.getElementById('demoText');
+            y.classList.add('text-primary')
+        }
+
+        // remove class by id
+        function removeClass(){
+            var y = document.getElementById('demoText');
+            y.classList.remove('text-primary')
+        }
+
+        // image attrubute change
+        function changeImage(){
+            var img = document.getElementById('image');
+            img.src = 'https://i.pinimg.com/236x/90/f8/b4/90f8b4bbc4291e59c76c2b81918c7dcf--johannes-paradise.jpg';
+        }
+
+        // Query selector
+        function changeInput(){
+            document.querySelector('h3').innerHTML = 'Enter Name';
+            document.querySelector('.name').value = 'Enter Name';
+            document.querySelector('#name').value = 'Enter Name';
+            document.querySelector('input[name = "name"]').value = 'Enter Your Name';
+            document.querySelector('input').placeholder = 'Enter Your Name';
+        }
+        
+
+        // Navigator Object
+        var appName = navigator.appName;
+        var appVersion = navigator.appVersion;
+        var appCodeName = navigator.appCodeName;
+        var appLanguage = navigator.language
+        var userAgent = navigator.userAgent;
+        var platform = navigator.platform;
+        var cookieEnabled = navigator.cookieEnabled;
+        var online = navigator.onLine;
+
+        /*
+        document.write(appName+'<br>');
+        document.write(appVersion+'<br>');
+        document.write(appCodeName+'<br>');
+        document.write(appLanguage+'<br>');
+        document.write(platform+'<br>');
+        document.write(cookieEnabled+'<br>');
+        document.write(online+'<br>');
+        */ 
+
+        // geo location
+        /*navigator.geolocation.getCurrentPosition(function(position){
+            let altitude = position.coords.altitude;
+            let longitude = position.coords.longitude;
+            let latitude = position.coords.latitude;
+            let speed = position.coords.speed;
+            let accuracy = position.coords.accuracy;
+            let heading = position.coords.heading;
+
+            document.write('Altitude is: ' + altitude + '<br>');
+            document.write('longitude is: ' + longitude + '<br>');
+            document.write('latitude is: ' + latitude + '<br>');
+            document.write('speed is: ' + speed + '<br>');
+            document.write('accuracy is: ' + accuracy + '<br>');
+            document.write('heading is: ' + heading + '<br>');
+        });*/
 
 
     </script>
