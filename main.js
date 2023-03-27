@@ -156,6 +156,9 @@ var greet = fname??defaultName;
 
 // ########################### Module 02 ##################################
 
+// Navigator Object
+console.log(navigator.cookieEnabled);
+
 
 
 

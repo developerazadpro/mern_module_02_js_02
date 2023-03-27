@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Practice</title>
+</head>
+<body>
+
+    <p id="demoText"></p>
+    <button id="demo" onclick="alertFunction();">Alert Box</button>
+    <button id="" onclick="confirmFunction();">Confirm Box</button>
+    <button id="" onclick="promptFunction();">Prompt Box</button>
+    <button id="" onclick="windowOpenFunction();">Open Window</button>
+    <button id="" onclick="windowCloseFunction();">Close Window</button>
+    <button id="" onclick="setTimeOutFunction();">Alert After 5 Sec</button>
+
+    <button id="" onclick="setIntervalFunction();">Set Interval</button>
+    <button id="" onclick="clearIntervalFunction();">Clear Interval</button>
+
+    <script>
+
+        //  Window object
+        function alertFunction(){
+            alert('I am clicked.');
+        }
+        
+        function confirmFunction(){
+            var confirmbox = confirm('Are you sure want to submit?');
+            console.log(confirmbox);
+        }
+
+        function promptFunction(){
+            var promptbox = prompt('What is your profession?');
+            console.log('Hello '+promptbox);
+        }
+
+        function windowOpenFunction(){
+            window.open();
+        }
+
+        function windowCloseFunction(){
+            var customWindow = window.open('', '_blank', '');
+            customWindow.close();
+        }
+
+        function setTimeOutFunction(){
+            setTimeout(function(){
+                alert('Alert After 5 Sec');
+            }, 5000)
+        }
+        
+        const myInterval = setInterval(myTimer, 1000)
+        function myTimer(){
+            const date = new Date();
+            const localTime = date.toLocaleTimeString();
+            document.getElementById('demoText').innerHTML = localTime;
+        }
+        function clearIntervalFunction(){
+            clearInterval(myInterval)
+        }
+
+
+
+
+    </script>
+</body>
+</html>
