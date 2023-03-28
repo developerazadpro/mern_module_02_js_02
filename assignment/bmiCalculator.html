@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>BMI Calculator</title>
+    <style>
+        body {font-family: Arial, Helvetica, sans-serif;}
+        
+        /* Full-width input fields */
+        input[type=text] {
+          width: 100%;
+          padding: 12px 20px;
+          margin: 8px 0;
+          display: inline-block;
+          border: 1px solid #ccc;
+          box-sizing: border-box;
+        }
+        
+        /* Set a style for all buttons */
+        button {
+          background-color: #04AA6D;
+          color: white;
+          padding: 14px 20px;
+          margin: 8px 0;
+          border: none;
+          cursor: pointer;
+          width: 100%;
+        }
+        
+        button:hover {
+          opacity: 0.8;
+        }
+        
+        /* Extra styles for the cancel button */
+        .resetbtn {
+          width: auto;
+          padding: 10px 18px;
+          background-color: #f44336;
+        }
+        
+        /* Center the image and position the close button */
+        .imgcontainer {
+          text-align: center;
+          margin: 24px 0 12px 0;
+          position: relative;
+        }
+        
+        img.avatar {
+          width: 40%;
+          border-radius: 50%;
+        }
+        
+        .container {
+          padding: 16px;
+        }
+        
+        span.height {
+          float: right;
+          padding-top: 16px;
+        }
+        body{
+            background-image: url('background.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        
+        </style>
+</head>
+<body>
+    <div class="container" style="width:1070px;margin:0 25%;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-8 col-md-offset-2">
+                    
+                      <form class="BmiCalculatorForm" action="#" method="POST">
+                        <div class="container">
+                          <b><p id="bmiResult"></p></b>
+                          <label for="weightInput"><b>Weight (in KG)</b></label>
+                          <input type="text" placeholder="Enter Weight" name="weightInput" id="weightInput" required>
+                    
+                          <label for="height"><b>Height (in Meter)</b></label>
+                          <input type="text" placeholder="Enter Height" name="height" id="heightInput" required>
+                            
+                          <button type="button" id="calculateBtn">Calculate BMI</button>
+                          
+                        </div>
+                    
+                        <div class="container">
+                          <button type="button" class="resetbtn" id="resetbtn">Reset</button>
+                        </div>
+                      </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+    <script>
+        var bmiResult    = document.querySelector('#bmiResult');
+        var calculateBtn = document.querySelector('#calculateBtn');
+        calculateBtn.addEventListener('click', calculateBmi);
+
+        function calculateBmi(e){
+            e.preventDefault();
+            let weight = document.getElementById('weightInput').value;
+            let height = document.getElementById('heightInput').value;
+            
+            if(weight == '' || isNaN(weight)){
+                return (bmiResult.innerHTML = 'Please enter valid weight.');
+            }
+            if(height == '' || isNaN(height)){
+                return (bmiResult.innerHTML = 'Please enter valid height.')
+            }
+            let bmi = weight / (height * height);
+            bmi = bmi.toFixed(2);
+            bmi = parseFloat(bmi);
+
+            if(bmi < 16){
+                return (bmiResult.innerHTML = `Severely Underweight: ${bmi}`);
+            }else if(bmi >= 16 && bmi < 18.5){
+                return (bmiResult.innerHTML = `Underweight: ${bmi}`);
+            }else if(bmi >= 18.5 && bmi < 25){
+                return (bmiResult.innerHTML = `Normal: ${bmi}`);
+            }else if(bmi >= 25 && bmi < 30){
+                return (bmiResult.innerHTML = `Overweight: ${bmi}`);
+            }else if(bmi >= 30 && bmi < 35){
+                return (bmiResult.innerHTML = `Moderately Obese: ${bmi}`);            
+            }else if(bmi >= 35 && bmi < 40){
+                return (bmiResult.innerHTML = `Severely Obese: ${bmi}`);
+            }else{
+                return (bmiResult.innerHTML = `Obese: ${bmi}`);
+            }
+            
+
+        }
+
+        const reset = document.querySelector('#resetbtn');
+        reset.addEventListener('click', resetBmiForm);
+        function resetBmiForm(e){
+            e.preventDefault();
+            document.querySelector('form').reset();
+            bmiResult.innerHTML = '';
+        }
+    </script>
+</html>
