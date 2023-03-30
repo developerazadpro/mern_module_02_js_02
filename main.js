@@ -156,5 +156,23 @@ var greet = fname??defaultName;
 
 // ########################### Module 02 ##################################
 
+// object
+const obj1 = {
+    name: 'Azharul',
+    age: 25,
+    profession: 'Doctor'
+}
+// object to array(for keys)
+const myObj1 = Object.keys(obj1);
+console.log(myObj1);// ['name', 'age', 'profession']
+
+// object to array(for values)
+const myObj2 = Object.values(obj1);
+console.log(myObj2);// ['Azharul', '25', 'profession']
+
+// object to array
+const myObj3 = Object.entries(obj1);
+console.log(myObj3);// [['name', 'Azharul'], ['age', 25], ['profession', 'Doctor']]
+console.log(myObj3[1][1])// 25
 
 
