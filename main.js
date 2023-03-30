@@ -176,3 +176,17 @@ console.log(myObj3);// [['name', 'Azharul'], ['age', 25], ['profession', 'Doctor
 console.log(myObj3[1][1])// 25
 
 
+// array reduce
+/*
+accumalator = 0, currentValue = 1 => accumalator = 1
+accumalator = 1, currentValue = 2 => accumalator = 3
+accumalator = 3, currentValue = 3 => accumalator = 6
+accumalator = 6, currentValue = 4 => accumalator = 10
+accumalator = 10, currentValue = 5 => accumalator = 15
+*/
+const arr = [1,2,3,4,5];
+const result = arr.reduce((accumalator, currentValue) => {
+    return accumalator + currentValue;
+}, 0)
+
+console.log(result)
